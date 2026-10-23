@@ -131,7 +131,7 @@ Refer to the screenshots folder for recorded cleanup evidence. Resources should 
 
 **Himanshu Raj**
 
-GitHub: [HimanshuRaj02](https://github.com/HimanshuRaj02)
+Linkedin: [Himanshu Raj](https://www.linkedin.com/in/himanshuraj3802/?isSelfProfile=true))
 
 ---
 
