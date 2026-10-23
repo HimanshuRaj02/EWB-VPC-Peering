@@ -64,67 +64,56 @@ The architecture connects VPC-A and VPC-B through a VPC Peering connection. Rout
 
 ## Verification and Testing
 
-The project evidence covers the VPC Peering status, connectivity in both directions, baseline failure, controlled failure, and recovery.
+The following evidence highlights the key configuration and connectivity checks performed during the project.
 
 ### 1. VPC Peering Connection — Active
 
 ![VPC Peering Active](screenshots/Peering_Active.jpg)
 
-[Open full-size VPC Peering evidence](screenshots/Peering_Active.jpg)
+### 2. Route Table Configuration
 
-### 2. App-A to App-B — Connectivity Test
+**VPC-A Public Route Table**
 
-![App-A to App-B Ping](screenshots/Pass_App-A_to_App-B.png)
+![VPC-A Public Route Table](screenshots/Route_Table_A_Public.jpg)
 
-[Open full-size App-A to App-B evidence](screenshots/Pass_App-A_to_App-B.png)
+**VPC-A Private Route Table**
 
-### 3. App-B to App-A — Connectivity Test
+![VPC-A Private Route Table](screenshots/Route_Table_A_Private.jpg)
 
-![App-B to App-A Ping](screenshots/Pass_App-B_to_App-A.png)
+**VPC-B Private Route Table**
 
-[Open full-size App-B to App-A evidence](screenshots/Pass_App-B_to_App-A.png)
+![VPC-B Private Route Table](screenshots/Route_Table_B_Private.jpg)
 
-### 4. Baseline Connectivity Failure
+### 3. Initial Connectivity Failure
 
 ![Baseline Connectivity Failure](screenshots/Baseline_Fail_App-A_to_App-B.png)
 
-[Open full-size baseline failure evidence](screenshots/Baseline_Fail_App-A_to_App-B.png)
+### 4. Successful Connectivity — App-A to App-B
 
-### 5. Controlled Failure Test
+![App-A to App-B Ping](screenshots/Pass_App-A_to_App-B.png)
+
+### 5. Successful Connectivity — App-B to App-A
+
+![App-B to App-A Ping](screenshots/Pass_App-B_to_App-A.png)
+
+### 6. Controlled Failure Test
 
 ![Controlled Failure Test](screenshots/Fail_App-A_to_App-B.png)
 
-[Open full-size controlled failure evidence](screenshots/Fail_App-A_to_App-B.png)
-
-### 6. Connectivity Recovery
+### 7. Connectivity Recovery
 
 ![Connectivity Recovery](screenshots/Recovery_Pass_App-A_to_App.png)
 
-[Open full-size recovery evidence](screenshots/Recovery_Pass_App-A_to_App.png)
-
-### 7. Route Table Configuration
-
-- [VPC-A Public Route Table](screenshots/Route_Table_A_Public.jpg)
-- [VPC-A Private Route Table](screenshots/Route_Table_A_Private.jpg)
-- [VPC-B Private Route Table](screenshots/Route_Table_B_Private.jpg)
-
-### 8. Additional Project Evidence
-
-The screenshots folder also contains evidence for VPC details, subnet configuration, security groups, EC2 instances, Internet Gateway, SSH access, and resource cleanup.
-
-[Browse all project screenshots](screenshots/)
-
 ## Project Documentation
 
-- [View Architecture Diagram](architecture/EWB_VPC_Peering_Architecture.png)
-- [Read Final Project Report (PDF)](docs/HimanshuRaj_EWB_VPC_Peering_Final_Report.pdf)
-- [Browse All Screenshots](screenshots/)
+- **Architecture Diagram:** [View Network Architecture](architecture/EWB_VPC_Peering_Architecture.png)
+- **Final Report:** [Read the Project Report (PDF)](docs/HimanshuRaj_EWB_VPC_Peering_Final_Report.pdf)
 
 ## Cleanup
 
 The project evidence includes cleanup activities involving EC2 instances, security groups, route tables, the VPC Peering connection, Internet Gateway, subnets, and VPCs.
 
-Refer to the cleanup screenshots for recorded evidence. Resources should be considered deleted only where the final AWS Console evidence confirms deletion.
+Refer to the screenshots folder for recorded cleanup evidence. Resources should be considered deleted only where the final AWS Console evidence confirms deletion.
 
 ## Key Learnings
 
@@ -146,3 +135,9 @@ GitHub: [HimanshuRaj02](https://github.com/HimanshuRaj02)
 ---
 
 *Completed as a practical AWS cloud networking project.*
+
+## All Project Screenshots
+
+All configuration, connectivity testing, troubleshooting, SSH access, and cleanup evidence is available in the screenshots folder.
+
+**[📁 View All Project Screenshots](screenshots/)**
