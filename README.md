@@ -4,7 +4,7 @@ A hands-on AWS networking project demonstrating private communication between tw
 
 ## Project Overview
 
-This project implements VPC Peering between two VPCs in the AWS `eu-north-1` (Europe – Stockholm) region. The goal is to enable private communication between App-A and App-B using their private IP addresses, without assigning public IPv4 addresses to the application instances.
+This project implements VPC Peering between two VPCs in the AWS `eu-north-1` (Europe – Stockholm) region. The objective is to enable private communication between App-A and App-B using their private IP addresses, without assigning public IPv4 addresses to the application instances.
 
 ## Project Objectives
 
@@ -25,7 +25,7 @@ This project implements VPC Peering between two VPCs in the AWS `eu-north-1` (Eu
 - Subnets and route tables
 - Internet Gateway
 - Security Groups
-- SSH, ICMP, and Linux ping utilities
+- SSH, ICMP, and Linux `ping` utilities
 
 ## Network Configuration
 
@@ -37,16 +37,16 @@ This project implements VPC Peering between two VPCs in the AWS `eu-north-1` (Eu
 | Public Subnet A | `10.10.1.0/24` |
 | Private Subnet A | `10.10.2.0/24` |
 | Private Subnet B | `10.20.1.0/24` |
-| Bastion Host | `10.10.1.10` private IP |
-| App-A | `10.10.2.10` private IP |
-| App-B | `10.20.1.10` private IP |
-| VPC Peering | `pcx-0f932f23edeec4c44` |
+| Bastion Host | `10.10.1.10` (private IP) |
+| App-A | `10.10.2.10` (private IP) |
+| App-B | `10.20.1.10` (private IP) |
+| VPC Peering ID | `pcx-0f932f23edeec4c44` |
 
-**Note:** The project design does not include a public subnet or Internet Gateway in VPC-B. App-A and App-B are private application instances.
+**Network design note:** VPC-B does not include a public subnet or Internet Gateway in this project design. App-A and App-B communicate using private IP addresses through VPC Peering.
 
 ## Architecture
 
-The architecture connects VPC-A and VPC-B through an active VPC Peering connection. The route tables provide routes to the remote VPC CIDR ranges. The Bastion Host provides the SSH jump-host path to App-A and App-B, subject to the configured security group rules.
+The architecture connects VPC-A and VPC-B through a VPC Peering connection. Route tables provide routes to the remote VPC CIDR ranges. The Bastion Host provides the SSH jump-host path to the private instances, subject to the configured network and security group rules.
 
 ![AWS VPC Peering Architecture](architecture/EWB_VPC_Peering_Architecture.png)
 
@@ -57,38 +57,74 @@ The architecture connects VPC-A and VPC-B through an active VPC Peering connecti
 3. Launched the Bastion Host, App-A, and App-B EC2 instances.
 4. Created and accepted the VPC Peering connection.
 5. Added the required peering routes to the relevant route tables.
-6. Configured SSH and ICMP inbound security group rules.
+6. Configured SSH and ICMP security group rules.
 7. Tested connectivity between App-A and App-B.
-8. Removed the ICMP Echo Request rule for a controlled failure test, then restored the rule and tested recovery.
-9. Checked instance addressing and documented resource cleanup.
+8. Removed the relevant ICMP rule for a controlled failure test, then restored the rule and tested recovery.
+9. Reviewed resource configuration and documented cleanup evidence.
 
 ## Verification and Testing
 
-The project testing workflow covers these scenarios:
+The project evidence covers the VPC Peering status, connectivity in both directions, baseline failure, controlled failure, and recovery.
 
-| Test | Expected/recorded purpose |
-|---|---|
-| Baseline without peering routes | Demonstrate the initial connectivity failure |
-| Forward ping: App-A → App-B | Verify connectivity across the peering connection |
-| Reverse ping: App-B → App-A | Verify return-direction connectivity |
-| Controlled failure | Verify ping failure after removing the relevant ICMP rule |
-| Recovery | Verify connectivity after restoring the ICMP rule |
+### 1. VPC Peering Connection — Active
 
-Use the screenshots in this repository and the detailed project report as the evidence for the actual command output and results.
+![VPC Peering Active](screenshots/Peering_Active.jpg)
+
+[Open full-size VPC Peering evidence](screenshots/Peering_Active.jpg)
+
+### 2. App-A to App-B — Connectivity Test
+
+![App-A to App-B Ping](screenshots/Pass_App-A_to_App-B.png)
+
+[Open full-size App-A to App-B evidence](screenshots/Pass_App-A_to_App-B.png)
+
+### 3. App-B to App-A — Connectivity Test
+
+![App-B to App-A Ping](screenshots/Pass_App-B_to_App-A.png)
+
+[Open full-size App-B to App-A evidence](screenshots/Pass_App-B_to_App-A.png)
+
+### 4. Baseline Connectivity Failure
+
+![Baseline Connectivity Failure](screenshots/Baseline_Fail_App-A_to_App-B.png)
+
+[Open full-size baseline failure evidence](screenshots/Baseline_Fail_App-A_to_App-B.png)
+
+### 5. Controlled Failure Test
+
+![Controlled Failure Test](screenshots/Fail_App-A_to_App-B.png)
+
+[Open full-size controlled failure evidence](screenshots/Fail_App-A_to_App-B.png)
+
+### 6. Connectivity Recovery
+
+![Connectivity Recovery](screenshots/Recovery_Pass_App-A_to_App.png)
+
+[Open full-size recovery evidence](screenshots/Recovery_Pass_App-A_to_App.png)
+
+### 7. Route Table Configuration
+
+- [VPC-A Public Route Table](screenshots/Route_Table_A_Public.jpg)
+- [VPC-A Private Route Table](screenshots/Route_Table_A_Private.jpg)
+- [VPC-B Private Route Table](screenshots/Route_Table_B_Private.jpg)
+
+### 8. Additional Project Evidence
+
+The screenshots folder also contains evidence for VPC details, subnet configuration, security groups, EC2 instances, Internet Gateway, SSH access, and resource cleanup.
+
+[Browse all project screenshots](screenshots/)
 
 ## Project Documentation
 
-- [Architecture Diagram](architecture/EWB_VPC_Peering_Architecture.png)
-- [Final Project Report](docs/HimanshuRaj_EWB_VPC_Peering_Final_Report.pdf)
-- [View All Screenshots](screenshots/)
-  
-The file paths above should match the actual names and locations in the repository. If a filename differs, update its link to match the uploaded file.
+- [View Architecture Diagram](architecture/EWB_VPC_Peering_Architecture.png)
+- [Read Final Project Report (PDF)](docs/HimanshuRaj_EWB_VPC_Peering_Final_Report.pdf)
+- [Browse All Screenshots](screenshots/)
 
 ## Cleanup
 
-The project evidence includes cleanup of the EC2 instances, security groups, route tables, VPC Peering connection, Internet Gateway, subnets, and VPCs.
+The project evidence includes cleanup activities involving EC2 instances, security groups, route tables, the VPC Peering connection, Internet Gateway, subnets, and VPCs.
 
-Confirm the cleanup state against the final AWS Console evidence. Do not recreate resources solely for documentation.
+Refer to the cleanup screenshots for recorded evidence. Resources should be considered deleted only where the final AWS Console evidence confirms deletion.
 
 ## Key Learnings
 
