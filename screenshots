@@ -1,7 +1,0 @@
-# Project Screenshots
-
-This folder contains screenshots captured during the AWS VPC Peering project.
-
-The screenshots provide evidence of VPC configuration, route tables, security group rules, peering connection, connectivity testing, and resource cleanup.
-
-Sensitive account details have been redacted for privacy. The original project configurations and test results remain unchanged.
