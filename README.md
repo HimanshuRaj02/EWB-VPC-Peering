@@ -78,10 +78,10 @@ Use the screenshots in this repository and the detailed project report as the ev
 
 ## Project Documentation
 
-- **Architecture diagram:** `architecture/EWB_VPC_Peering_Architecture_Final.png`
-- **Detailed project report:** `docs/HimanshuRaj_EWB_VPC_Peering_Final_Report.pdf`
-- **Implementation screenshots:** `screenshots/`
-
+- [Architecture Diagram](architecture/EWB_VPC_Peering_Architecture.png)
+- [Final Project Report](docs/HimanshuRaj_EWB_VPC_Peering_Final_Report.pdf)
+- [View All Screenshots](screenshots/)
+  
 The file paths above should match the actual names and locations in the repository. If a filename differs, update its link to match the uploaded file.
 
 ## Cleanup
