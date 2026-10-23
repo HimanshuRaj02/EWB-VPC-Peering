@@ -108,6 +108,7 @@ The following evidence highlights the key configuration and connectivity checks 
 
 - **Architecture Diagram:** [View Network Architecture](architecture/EWB_VPC_Peering_Architecture.png)
 - **Final Report:** [Read the Project Report (PDF)](docs/HimanshuRaj_EWB_VPC_Peering_Final_Report.pdf)
+- **All Screenshots:** [📁 View All Project Screenshots](screenshots/)
 
 ## Cleanup
 
@@ -136,8 +137,3 @@ GitHub: [HimanshuRaj02](https://github.com/HimanshuRaj02)
 
 *Completed as a practical AWS cloud networking project.*
 
-## All Project Screenshots
-
-All configuration, connectivity testing, troubleshooting, SSH access, and cleanup evidence is available in the screenshots folder.
-
-**[📁 View All Project Screenshots](screenshots/)**
